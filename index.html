@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI計算アプリ</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1 class="head-line">BMI計算アプリ</h1> <!--画像上のヘッダー部分-->
+</header>
+
+<section>
+    <p>あなたの身長と体重を入力してください</p>
+    <label class="height">身長(cm): <input></label>
+    <label class="weight">体重(kg): <input></label><br>
+    <label class="result">あなたのBMIは: <input readonly></label>
+</section>
+
+<div>
+    <button class="button">計算</button>
+    <button class="reset">クリア</button>
+</div>
+<section>
+
+</section>
+    
+</body>
+<script>
+    //label要素の呼び出し
+const heightInput = document.querySelector('.height input');
+const weightInput = document.querySelector('.weight input');
+const resultOutput = document.querySelector('.result input');
+
+// 身長のインプット欄に入力された時の動作
+heightInput.addEventListener('input', () => {
+    // .valueでinputに入力された文字を取り出す
+    const height = document.querySelector('.height input').value; 
+    console.log(height);
+});
+
+// 体重のインプット欄に入力された時の動作
+weightInput.addEventListener('input', () => {
+    const weight = document.querySelector('.weight input').value;
+    console.log(weight)
+});
+
+// button要素を呼び出す
+const clickbutton = document.querySelector('button');
+
+// buttonを押したときの動作
+// const heightとconst weightは前述してるが、イベント内で取得した値はそのイベント内だけ
+clickbutton.addEventListener('click', () => {
+    // heightInputとweightInput(input要素そのもの)は常に最新の値を保持
+    const height = heightInput.value;
+    const weight = weightInput.value;
+    const calculation = `${weight/ (height / 100) ** 2}`;
+    resultOutput.value = calculation
+})
+
+// resetボタンの呼び出し
+const resetbutton = document.querySelector('.reset');
+
+//リセットボタン押したときの動作
+resetbutton.addEventListener('click', () => {
+  heightInput.value  = '';
+  weightInput.value  = '';
+  resultOutput.value = '';
+});
+</script>
+</html>
