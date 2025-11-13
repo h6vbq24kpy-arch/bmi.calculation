@@ -25,7 +25,7 @@ clickbutton.addEventListener('click', () => {
     // heightInputとweightInput(input要素そのもの)は常に最新の値を保持
     const height = heightInput.value;
     const weight = weightInput.value;
-    const calculation = `${weight/ (height / 100) ** 2}`;
+    const calculation = weight/ (height / 100) ** 2;
     resultOutput.value = calculation
 })
 
@@ -38,6 +38,7 @@ resetbutton.addEventListener('click', () => {
   weightInput.value  = '';
   resultOutput.value = '';
 });
+
 
 
 
