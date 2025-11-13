@@ -26,7 +26,7 @@ clickbutton.addEventListener('click', () => {
     const height = heightInput.value;
     const weight = weightInput.value;
     const calculation = weight/ (height / 100) ** 2;
-    resultOutput.value = calculation.toFixied(1);
+    resultOutput.value = calculation.toFixed(1);
 })
 
 // resetボタンの呼び出し
@@ -38,6 +38,7 @@ resetbutton.addEventListener('click', () => {
   weightInput.value  = '';
   resultOutput.value = '';
 });
+
 
 
 
